@@ -74,6 +74,8 @@ class MemeEditorViewController: UIViewController, UITextFieldDelegate, UIImagePi
             self.navigationController?.popViewController(animated: true)
             }
         }
+        
+        controller.modalPresentationStyle = .fullScreen
         present(controller, animated: true, completion: nil)
     }
     
@@ -100,6 +102,9 @@ class MemeEditorViewController: UIViewController, UITextFieldDelegate, UIImagePi
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             imagePickerView.image = image
+            topTextField.isHidden = false
+            bottomTextField.isHidden = false
+            shareButton.isEnabled = true
         }
         dismiss(animated: true, completion: nil)
     }

@@ -31,6 +31,7 @@ class SentMemesDetailViewController: UIViewController {
     @objc func startMemeEditorViewController() {
         let memeEditorViewController = self.storyboard!.instantiateViewController(withIdentifier: "MemeEditorViewController") as! MemeEditorViewController
         
+        memeEditorViewController.modalPresentationStyle = .fullScreen
         self.present(memeEditorViewController, animated: true, completion: nil)
         
         memeEditorViewController.topTextField.text = memes.topText
